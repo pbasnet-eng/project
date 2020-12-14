@@ -1,76 +1,158 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget App - JavaScript</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="budget-container">
-        <div class="app-title">
-            <a href="">Code<b>Explained</b></a>
-        </div>
-        <div class="budget-header">
-            <div class="balance">
-                <div class="title">
-                    Balance
-                </div>
-                <div class="value">
-                    <small>$</small>0
-                </div>
-            </div>
-            <div class="account">
-                <div class="income">
-                    <div class="title">
-                        Income
-                    </div>
-                    <div class="income-total">
-                        <small>$</small>0
-                    </div>
-                </div>
-                <div class="chart"></div>
-                <div class="outcome">
-                    <div class="title">
-                        Income
-                    </div>
-                    <div class="outcome-total">
-                        <small>$</small>0
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="budget-dashboard">
-            <div class="dash-title">Dashboard</div>
-            <div class="toggle">
-                <div class="tab1">Expenses</div>
-                <div class="tab2">Income</div>
-                <div class="tab3 active">All</div>
-            </div>
-            <div class="hide" id="income">
-                <ul class="list"></ul>
-                <div class="input">
-                    <input type="text" id="income-title-input" name="title" placeholder="Title">
-                    <input type="number" id="income-amount-input" name="amount" placeholder="$0">
-                    <div class="add-income"><img src="icon/plus.png" alt=""></div>
-                </div>
-            </div>
-            <div class="hide" id="expense">
-                <ul class="list"></ul>
-                <div class="input">
-                    <input type="text" id="expense-title-input" name="title" placeholder="Title">
-                    <input type="number" id="expense-amount-input" name="amount" placeholder="$0">
-                    <div class="add-expense"><img src="icon/plus.png" alt=""></div>
-                </div>
-            </div>
-            <div id="all">
-                <ul class="list"></ul>
-            </div>
-        </div>
-    </div>
+	<head>
+		<meta charset="utf-8" />
+		<style>
 
-    <script src="chart.js"></script>
-    <script src="budget.js"></script>
-</body>
+
+th  {
+   color: #C13941;
+    text-align: center;
+    opacity: .8;
+    padding: 3px 5px;
+    font-family: "Courier New", sans-serif;
+    text-align: center;
+    font-size: 15px;
+
+
+
+}
+td  {
+    color: #51343A;
+    text-align: center;
+    opacity: .8;
+    padding: 3px 5px;
+    font-family: "Courier New", sans-serif;
+    text-align: center;
+    font-size: 15px;
+
+}
+#tk {
+    color: #779280;
+    text-align: left;
+    font-family: "Courier New", sans-serif;
+    font-size: 17px;
+
+}
+body {
+
+	background:url(010.png);
+    background-size: 100% auto;
+    text-align: center;
+	}
+#submit
+{
+  color: #565606;
+    background-color: #FDD09B;
+            font-family: "Courier New", sans-serif;
+    text-align: center;
+                font-size: 17px;
+    border-radius: 20px;
+
+
+}
+
+#clear
+{
+  color: #565606;
+    background-color: #FDD09B;
+            font-family: "Courier New", sans-serif;
+    text-align: center;
+                font-size: 17px;
+    border-radius: 20px;
+            }
+    
+#print
+{
+  color: #565606;
+    background-color: #FDD09B;
+            font-family: "Courier New", sans-serif;
+    text-align: center;
+                font-size: 17px;
+    border-radius: 20px;
+
+}
+</style>
+	</head>
+<!–– This project created by: Elmehdi Mnajli and Pratima Basnet ––>
+	<body>
+
+			<table >
+            <tr>
+					<th>Meals</th>
+					<th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+            </tr>
+	      <tr class="Breakfast">
+	           <td>Breakfast</td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+
+	      </tr>
+	      <tr class = "MorningSnack">
+	        <td>Snack</td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+	      </tr>
+	      <tr class= "Lunch">
+	        <td>Lunch</td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+	      </tr>
+				<tr class= "EveningSnack">
+	        <td>Snack</td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+
+	      </tr>
+				<tr class= "Dinner">
+	        <td>Dinner</td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+					<td><input type="text" class="meal"></td>
+
+	      </tr>
+	    </table>
+<div >
+			<button type="button" onclick="weeklyMeal()" id="submit">Submit</button>
+			<button type="button" onclick="document.location.reload(true)" id="clear">Clear</button>
+            <input type="button" value="Print this page" onClick="window.print()" id ="print">
+
+    
+</div>
+<script src="project.js"></script>
+<p class= "results" id="tk"></p>
+	</body>
+
+
 </html>
